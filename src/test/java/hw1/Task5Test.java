@@ -19,5 +19,6 @@ public class Task5Test {
         assertFalse(Task5.isPalindromeDescendant(1));
         assertFalse(Task5.isPalindromeDescendant(12367));
         assertFalse(Task5.isPalindromeDescendant(343311));
+        assertFalse(Task5.isPalindromeDescendant(34331100));
     }
 }

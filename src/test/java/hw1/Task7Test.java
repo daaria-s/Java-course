@@ -26,7 +26,9 @@ public class Task7Test {
     @Test
     void randomTest() {
         Random rn = new Random();
-        int number = rn.nextInt(10000);
-        assertEquals(Task7.rotateRight(number * 8, 3), number);
+        for (int i = 0; i < 100; i++) {
+            int number = rn.nextInt(10000);
+            assertEquals(Task7.rotateRight(number * 8, 3), number);
+        }
     }
 }

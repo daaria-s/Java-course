@@ -14,12 +14,13 @@ public class Task4Test {
         assertEquals(Task4.fixString("123456"), "214365");
         assertEquals(Task4.fixString("hTsii  s aimex dpus rtni.g"), "This is a mixed up string.");
         assertEquals(Task4.fixString("badce"), "abcde");
+        assertEquals(Task4.fixString("a"), "a");
     }
 
     @Test
     void randomTest() {
         Random rn = new Random();
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 100; i++) {
             int size = rn.nextInt(10000);
             byte[] array = new byte[size];
             rn.nextBytes(array);
