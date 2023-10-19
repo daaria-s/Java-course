@@ -1,4 +1,4 @@
-package hw1;
+package edu.hw1;
 
 import java.util.Arrays;
 

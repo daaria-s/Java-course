@@ -1,4 +1,4 @@
-package hw1;
+package edu.hw1;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,7 +11,7 @@ public final class Task0 {
     private Task0() {
     }
 
-    public static void main(String[] args) {
+    public static void helloWorld(String[] args) {
         LOGGER.info("Привет, мир!");
 
     }

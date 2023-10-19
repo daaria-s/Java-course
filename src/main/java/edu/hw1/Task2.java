@@ -1,15 +1,18 @@
-package hw1;
+package edu.hw1;
 
 public final class Task2 {
+
+    private static final int BASE = 10;
 
     private Task2() {
     }
 
     public static int countDigits(int number) {
+        int currentNumber = number;
         int answer = 1;
-        while (number / 10 != 0) {
+        while (currentNumber / BASE != 0) {
             ++answer;
-            number /= 10;
+            currentNumber /= BASE;
         }
         return answer;
 

@@ -1,11 +1,9 @@
-package hw1;
+package edu.hw1;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
-import java.sql.SQLOutput;
 
 public final class Task1 {
+    private static final int SECONDS_IN_MINUTES = 60;
 
     private Task1() {
     }
@@ -15,13 +13,12 @@ public final class Task1 {
         if (time.length == 2) {
             int minutes = Integer.parseInt(time[0]);
             int seconds = Integer.parseInt(time[1]);
-            if (seconds < 60 && minutes >= 0 && seconds >= 0) {
-                return minutes * 60 + seconds;
+            if (seconds < SECONDS_IN_MINUTES && minutes >= 0 && seconds >= 0) {
+                return minutes * SECONDS_IN_MINUTES + seconds;
             }
         }
         return -1;
     }
-
 
 }
 

@@ -1,15 +1,16 @@
-package hw1;
+package edu.hw1;
 
+import edu.hw1.Task8;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class Task8Test {
 
 
     @Test
     void trueTest() {
-        assertTrue(Task8.knightBoardCapture(new int[][]{
+        assertTrue(edu.hw1.Task8.knightBoardCapture(new int[][]{
                 {0, 0, 0, 1, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 1, 0, 0, 0, 1, 0, 0},
@@ -19,7 +20,7 @@ public class Task8Test {
                 {0, 1, 0, 0, 0, 0, 0, 1},
                 {0, 0, 0, 0, 1, 0, 0, 0}
         }));
-        assertTrue(Task8.knightBoardCapture(new int[][]{
+        assertTrue(edu.hw1.Task8.knightBoardCapture(new int[][]{
                 {1, 0, 1, 0, 0, 0, 0, 1},
                 {0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 1, 0, 0, 1, 0, 0},
@@ -34,7 +35,7 @@ public class Task8Test {
 
     @Test
     void falseTest() {
-        assertFalse(Task8.knightBoardCapture(new int[][]{
+        assertFalse(edu.hw1.Task8.knightBoardCapture(new int[][]{
                 {1, 0, 1, 0, 1, 0, 1, 0},
                 {0, 1, 0, 1, 0, 1, 0, 1},
                 {0, 0, 0, 0, 1, 0, 1, 0},
@@ -44,7 +45,7 @@ public class Task8Test {
                 {1, 0, 0, 0, 1, 0, 1, 0},
                 {0, 0, 0, 1, 0, 1, 0, 1}
         }));
-        assertFalse(Task8.knightBoardCapture(new int[][]{
+        assertFalse(edu.hw1.Task8.knightBoardCapture(new int[][]{
                 {0, 0, 0, 0, 1, 0, 0, 0},
                 {0, 0, 0, 0, 0, 1, 0, 0},
                 {0, 0, 0, 1, 0, 0, 0, 0},
