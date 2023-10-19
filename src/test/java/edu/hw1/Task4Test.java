@@ -11,11 +11,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class Task4Test {
     @Test
     void validTest() {
-        assertEquals(edu.hw1.Task4.fixString("оПомигети псаривьтс ртко!и"), "Помогите исправить строки!");
-        assertEquals(edu.hw1.Task4.fixString("123456"), "214365");
-        assertEquals(edu.hw1.Task4.fixString("hTsii  s aimex dpus rtni.g"), "This is a mixed up string.");
-        assertEquals(edu.hw1.Task4.fixString("badce"), "abcde");
-        assertEquals(edu.hw1.Task4.fixString("a"), "a");
+        assertEquals("Помогите исправить строки!", edu.hw1.Task4.fixString("оПомигети псаривьтс ртко!и"));
+        assertEquals("214365", edu.hw1.Task4.fixString("123456"));
+        assertEquals("This is a mixed up string.", edu.hw1.Task4.fixString("hTsii  s aimex dpus rtni.g"));
+        assertEquals("abcde", edu.hw1.Task4.fixString("badce"));
+        assertEquals("a", edu.hw1.Task4.fixString("a"));
     }
 
     @Test
@@ -26,7 +26,7 @@ public class Task4Test {
             byte[] array = new byte[size];
             rn.nextBytes(array);
             String generatedString = new String(array, StandardCharsets.UTF_8);
-            assertEquals(edu.hw1.Task4.fixString(Task4.fixString(generatedString)), generatedString);
+            assertEquals(generatedString, edu.hw1.Task4.fixString(Task4.fixString(generatedString)));
         }
 
 

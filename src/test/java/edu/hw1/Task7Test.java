@@ -10,16 +10,16 @@ public class Task7Test {
 
     @Test
     void rotateRightTest() {
-        assertEquals(edu.hw1.Task7.rotateRight(8, 1), 4);
-        assertEquals(edu.hw1.Task7.rotateRight(63, 63), 63);
+        assertEquals(4, edu.hw1.Task7.rotateRight(8, 1));
+        assertEquals(63, edu.hw1.Task7.rotateRight(63, 63));
 
     }
 
     @Test
     void rotateLeftTest() {
-        assertEquals(edu.hw1.Task7.rotateLeft(16, 1), 1);
-        assertEquals(edu.hw1.Task7.rotateLeft(17, 2), 6);
-        assertEquals(edu.hw1.Task7.rotateLeft(31, 6), 31);
+        assertEquals(1, edu.hw1.Task7.rotateLeft(16, 1));
+        assertEquals(6, edu.hw1.Task7.rotateLeft(17, 2));
+        assertEquals(31, edu.hw1.Task7.rotateLeft(31, 6));
     }
 
     @Test
@@ -27,7 +27,7 @@ public class Task7Test {
         Random rn = new Random();
         for (int i = 0; i < 100; i++) {
             int number = rn.nextInt(10000);
-            assertEquals(Task7.rotateRight(number * 8, 3), number);
+            assertEquals(number, Task7.rotateRight(number * 8, 3));
         }
     }
 }
