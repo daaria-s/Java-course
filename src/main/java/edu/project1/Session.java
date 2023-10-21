@@ -57,7 +57,7 @@ public class Session {
         return gameStatus;
     }
 
-    private boolean isAllGuessed() {
+    protected boolean isAllGuessed() {
         for (char elem : userAnswer) {
             if (elem == UNKNOWN_LETTER_SYMBOL) {
                 return false;
