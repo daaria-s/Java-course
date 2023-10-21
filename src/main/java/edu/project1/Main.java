@@ -1,27 +1,54 @@
 package edu.project1;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import java.util.Scanner;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+
 public final class Main {
-    private final static Logger LOGGER = LogManager.getLogger();
+    private static final String GIVE_UP_SIGN = "-1";
 
     private Main() {
     }
 
-    public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        LOGGER.info("Hello and welcome!");
-
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 0; i <= 2; i++) {
-
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            LOGGER.info("i = {}", i);
+    public static Character parseString(String userString) {
+        if (userString.length() == 1) {
+            if (Character.isAlphabetic(userString.charAt(0))) {
+                return userString.toLowerCase().charAt(0);
+            }
         }
+        return null;
+    }
+
+    public static void main(String[] args) {
+        Scanner myObj = new Scanner(System.in);
+        Session session = new Session(new Dictionary().generateWord());
+
+        Printer.welcomeMessage();
+
+        while (true) {
+            String userInput = myObj.nextLine();
+
+            if (userInput.equals(GIVE_UP_SIGN)) {
+                Printer.gameOver();
+                break;
+            }
+            Character userChar = parseString(userInput);
+            if (userChar == null) {
+                Printer.badInput();
+                continue;
+            }
+            if (session.attemptToGuess(userChar)) {
+                Printer.hit();
+            } else {
+                Printer.missed(session.getAttempts(), session.getMaxAttempts());
+            }
+            Printer.printUserAnswer(session.getUserAnswer());
+            GameStatus gameStatus = session.gameStatusCheck();
+            if (gameStatus != GameStatus.IN_PROCESS) {
+                Printer.gameResult(gameStatus);
+                break;
+            }
+
+        }
+
     }
 }
