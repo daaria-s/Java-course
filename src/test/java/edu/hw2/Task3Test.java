@@ -10,7 +10,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class Task3Test {
 
-
     @Test
     void FaultyConnectionManagerTest() {
         FaultyConnectionManager manager = new FaultyConnectionManager();
@@ -22,15 +21,15 @@ public class Task3Test {
 
     @Test
     void DefaultConnectionManagerTest() {
-            DefaultConnectionManager manager = new DefaultConnectionManager();
-            FaultyConnection connection = new FaultyConnection();
-            int faultConnections = 0;
-            for (int i = 0; i < 100; i++) {
-                if (manager.getConnection().getClass() == connection.getClass()) {
-                    faultConnections++;
-                }
+        DefaultConnectionManager manager = new DefaultConnectionManager();
+        FaultyConnection connection = new FaultyConnection();
+        int faultConnections = 0;
+        for (int i = 0; i < 100; i++) {
+            if (manager.getConnection().getClass() == connection.getClass()) {
+                faultConnections++;
             }
-            assertTrue(faultConnections < 100);
-            assertTrue(faultConnections > 0);
+        }
+        assertTrue(faultConnections < 100);
+        assertTrue(faultConnections > 0);
     }
 }
