@@ -2,12 +2,12 @@ package edu.hw2.task4;
 
 public class CallingInfoMethod {
 
+    private CallingInfoMethod() {
+    }
 
-    private CallingInfoMethod() {}
-
-    public static CallingInfo callingInfo(Throwable e) {
-        StackTraceElement[] trace = e.getStackTrace();
-        return new CallingInfo(trace[0].getClassName(), trace[0].getMethodName());
+    public static CallingInfo callingInfo() {
+        StackTraceElement[] trace = new Throwable().getStackTrace();
+        return new CallingInfo(trace[1].getClassName(), trace[1].getMethodName());
 
     }
 }

@@ -14,12 +14,14 @@ public class Task4Test {
 
     @Test
     void callingInfoTest() {
-        try {
-            someFunction();
-        } catch (Throwable e) {
-            CallingInfo callingInfo = new CallingInfo("edu.hw2.Task4Test", "someFunction");
-            assertEquals(callingInfo, callingInfo(e));
-        }
+        CallingInfo callingInfo = new CallingInfo("edu.hw2.Task4Test", "callingInfoTest");
+        assertEquals(callingInfo, callingInfo());
+    }
+
+    @Test
+    void callingInfoAnotherTest() {
+        CallingInfo callingInfo = new CallingInfo("edu.hw2.Task4Test", "callingInfoAnotherTest");
+        assertEquals(callingInfo, callingInfo());
     }
 
 }
