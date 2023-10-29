@@ -3,7 +3,8 @@ package edu.hw3;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Task3 {
+class Task3 {
+    private Task3() {}
 
     public static <T> HashMap<T, Integer> freqDict(ArrayList<T> arrayList) {
         HashMap<T, Integer> answer = new HashMap<>();
@@ -18,13 +19,4 @@ public class Task3 {
 
     }
 
-    public static void main(String[] s) {
-        ArrayList<String> a = new ArrayList<>();
-        a.add("a");
-        a.add("BB");
-        a.add("a");
-        a.add("BB");
-        HashMap<String, Integer> dic = freqDict(a);
-        System.out.println(dic);
-    }
-    }
+}

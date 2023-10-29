@@ -2,7 +2,9 @@ package edu.hw3;
 
 import java.util.ArrayList;
 
-public class Task2 {
+class Task2 {
+
+    private Task2() {}
 
     static public ArrayList<String> clusterize(String string) {
         ArrayList<String> answer = new ArrayList<>();
@@ -11,8 +13,7 @@ public class Task2 {
         for (int i = 0; i < string.length(); i++) {
             if (string.charAt(i) == '(') {
                 currentOpenBrackets++;
-            }
-            else if (string.charAt(i) == ')') {
+            } else if (string.charAt(i) == ')') {
                 currentOpenBrackets--;
             }
 
@@ -25,11 +26,4 @@ public class Task2 {
         return answer;
     }
 
-
-    public static void main(String[] s) {
-
-        System.out.println(clusterize("()()()"));
-        System.out.println(clusterize("((()))(())()()(()())"));
-        System.out.println(clusterize("()()()((()))"));
-    }
 }

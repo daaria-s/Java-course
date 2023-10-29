@@ -2,7 +2,10 @@ package edu.hw3;
 
 public class Task4 {
 
-    private final static String[] ROMAN_NUMBERS = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+    private Task4() {}
+
+    private final static String[] ROMAN_NUMBERS =
+        {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
     private final static int[] DECIMAL_NUMBERS = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
 
     public static String convertToRoman(int number) {
@@ -19,11 +22,4 @@ public class Task4 {
         return answer.toString();
     }
 
-
-
-
-
-    public static void main(String[] s) {
-        System.out.println(convertToRoman(27));
-    }
 }
