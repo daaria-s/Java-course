@@ -111,7 +111,6 @@ public class Task {
             }
             patternBuilder.append(s.charAt(i));
         }
-        System.out.println(patternBuilder);
         Pattern pattern = Pattern.compile(patternBuilder.toString());
         return pattern.matcher(t).find();
     }
