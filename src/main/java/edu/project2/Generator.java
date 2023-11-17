@@ -127,14 +127,18 @@ public class Generator {
                 directions.add(i);
             }
 
-            while (directions.size() > 0) {
+            while (!directions.isEmpty()) {
                 int dirIndex = rd.nextInt(directions.size());
+                int direction = directions.get(dirIndex);
 
-                if (isValidCoordinate(row + ROW_MOVE[dirIndex], col + COL_MOVE[dirIndex], height, width)) {
-                    int curRow = row + ROW_MOVE[dirIndex] / 2;
-                    int curCol = col + COL_MOVE[dirIndex] / 2;
+                if (isValidCoordinate(row + ROW_MOVE[dirIndex] * 2, col + COL_MOVE[dirIndex] * 2, height, width)
+                    &&
+                    grid[row + ROW_MOVE[dirIndex] * 2][col + COL_MOVE[dirIndex] * 2].type().equals(Cell.Type.PASSAGE)) {
+                    int curRow = row + ROW_MOVE[dirIndex];
+                    int curCol = col + COL_MOVE[dirIndex];
                     grid[curRow][curCol] = new Cell(curRow, curCol, Cell.Type.PASSAGE);
                     directions.clear();
+                    continue;
                 }
 
                 directions.remove(dirIndex);
@@ -142,8 +146,8 @@ public class Generator {
             }
 
             for (int i = 0; i < ROW_MOVE.length; i++) {
-                int curRow = row + ROW_MOVE[i];
-                int curCol = col + COL_MOVE[i];
+                int curRow = row + ROW_MOVE[i] * 2;
+                int curCol = col + COL_MOVE[i] * 2;
                 if (isValidCoordinate(curRow, curCol, height, width)
                     && grid[curRow][curCol].type().equals(Cell.Type.WALL)) {
                     cellsToCheck.add(new Coordinate(curRow, curCol));
