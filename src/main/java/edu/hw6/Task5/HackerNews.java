@@ -35,7 +35,7 @@ public class HackerNews {
 
         Matcher matcher = pattern.matcher(response.body());
 
-        System.out.println(matcher.find());
+        assert matcher.find();
         return matcher.group(1);
 
     }

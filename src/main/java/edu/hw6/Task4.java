@@ -30,8 +30,4 @@ public class Task4 {
             System.out.println(e.getMessage());
         }
     }
-
-    public static void main(String[] args) {
-        outputStreamComposition(Path.of("hello.txt"));
-    }
 }

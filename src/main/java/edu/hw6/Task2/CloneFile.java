@@ -11,44 +11,45 @@ import java.util.regex.Pattern;
 
 public class CloneFile {
 
-    static void cloneFile(Path originalPath) throws IOException {
+    static public void cloneFile(Path originalPath) {
 
-        String pathWithoutFileName = originalPath.toFile().getParent();
+        try {
 
-        String originalFileName = originalPath.getFileName().toString();
+            String pathWithoutFileName = originalPath.toFile().getParent();
 
-        String copyFileName;
+            String originalFileName = originalPath.getFileName().toString();
 
-        Pattern pattern1Copy = Pattern.compile("^(.*) — копия\\.txt$");
-        Matcher oneCopyMatcher = pattern1Copy.matcher(originalFileName);
+            String copyFileName = "";
 
-        Pattern patternManyCopies = Pattern.compile("^(.*) — копия \\((\\d*)\\)\\.txt$");
-        Matcher manyCopiesMatcher = patternManyCopies.matcher(originalFileName);
+            Pattern pattern1Copy = Pattern.compile("^(.*) — копия\\.txt$");
+            Matcher oneCopyMatcher = pattern1Copy.matcher(originalFileName);
 
-        Pattern patternNoCopy = Pattern.compile("^(.*)\\.txt$");
+            Pattern patternManyCopies = Pattern.compile("^(.*) — копия \\((\\d*)\\)\\.txt$");
+            Matcher manyCopiesMatcher = patternManyCopies.matcher(originalFileName);
 
-        Matcher noCopyMatcher = patternNoCopy.matcher(originalFileName);
-        if (oneCopyMatcher.find()) {
-            copyFileName = oneCopyMatcher.group(1) + " — копия (2).txt";
+            Pattern patternNoCopy = Pattern.compile("^(.*)\\.txt$");
+            Matcher noCopyMatcher = patternNoCopy.matcher(originalFileName);
+            if (oneCopyMatcher.find()) {
+                copyFileName = oneCopyMatcher.group(1) + " — копия (2).txt";
+            } else if (manyCopiesMatcher.find()) {
+                copyFileName =
+                    manyCopiesMatcher.group(1) + " — копия (" + (Integer.parseInt(manyCopiesMatcher.group(2)) + 1) +
+                        ").txt";
+            } else if (noCopyMatcher.find()) {
+                copyFileName = noCopyMatcher.group(1) + " — копия.txt";
+            }
+
+            Path copiedPath = Paths.get(pathWithoutFileName + "/" + copyFileName);
+            if (new File(copiedPath.toString()).exists()) {
+                cloneFile(copiedPath);
+                return;
+            }
+
+            Files.copy(originalPath, copiedPath, StandardCopyOption.REPLACE_EXISTING);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-        else if (manyCopiesMatcher.find()) {
-            copyFileName = manyCopiesMatcher.group(1) + " — копия (" + (Integer.parseInt(manyCopiesMatcher.group(2)) + 1) + ").txt";
-        }
-        else {
-            copyFileName = noCopyMatcher.group(1) + " — копия.txt";
-        }
-
-        Path copiedPath = Paths.get(pathWithoutFileName + "/" + copyFileName);
-        if (new File(copiedPath.toString()).exists()) {
-            cloneFile(copiedPath);
-        }
-
-        Files.copy(originalPath, copiedPath, StandardCopyOption.REPLACE_EXISTING);
-
     }
 
-    public static void main(String[] args) throws IOException {
-
-        cloneFile(Paths.get("src/main/java/edu/hw6/myMap.txt"));
-    }
 }

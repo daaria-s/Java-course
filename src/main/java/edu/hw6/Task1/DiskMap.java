@@ -15,7 +15,7 @@ public class DiskMap implements Map<String, String> {
 
     String DEFAULT_FILE_NAME = "diskMap";
 
-    DiskMap(String fileName) {
+    public DiskMap(String fileName) {
 
         myFileName = fileName;
         if (!new File(fileName).exists()) {
