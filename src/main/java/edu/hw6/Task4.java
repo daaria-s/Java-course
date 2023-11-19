@@ -13,6 +13,10 @@ import java.util.zip.CheckedOutputStream;
 
 public class Task4 {
 
+    private Task4() {
+    }
+
+    @SuppressWarnings("RegexpSinglelineJava")
     static void outputStreamComposition(Path filePath) {
 
         try (

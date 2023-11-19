@@ -12,6 +12,9 @@ import static java.net.http.HttpClient.newHttpClient;
 
 public class HackerNews {
 
+    private HackerNews() {
+    }
+
     static long[] hackerNewsTopStories() throws URISyntaxException, IOException, InterruptedException {
         var request =
             HttpRequest.newBuilder().uri(new URI("https://hacker-news.firebaseio.com/v0/topstories.json")).GET()
@@ -40,8 +43,4 @@ public class HackerNews {
 
     }
 
-    public static void main(String[] args) throws URISyntaxException, IOException, InterruptedException {
-        hackerNewsTopStories();
-        System.out.println(news(37570037));
-    }
 }

@@ -1,19 +1,26 @@
 package edu.hw6.Task1;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 public class DiskMap implements Map<String, String> {
 
     HashMap<String, String> myMap = new HashMap<>();
     String myFileName;
 
-    String DEFAULT_FILE_NAME = "diskMap";
+    static final String DEFAULT_FILE_NAME = "diskMap";
+
+    static final String TEXT_FILE = ".txt";
 
     public DiskMap(String fileName) {
 
@@ -35,15 +42,16 @@ public class DiskMap implements Map<String, String> {
     }
 
     String generateFileName() {
-        String name = DEFAULT_FILE_NAME + ".txt";
+        String name = DEFAULT_FILE_NAME + TEXT_FILE;
         int i = 1;
         while (new File(name).exists()) {
-            name = DEFAULT_FILE_NAME + i + ".txt";
+            name = DEFAULT_FILE_NAME + i + TEXT_FILE;
             i++;
         }
         return name;
     }
 
+    @SuppressWarnings("RegexpSinglelineJava")
     void createFile(String fileName) {
         try {
             myFileName = fileName;
@@ -55,6 +63,7 @@ public class DiskMap implements Map<String, String> {
 
     }
 
+    @SuppressWarnings("RegexpSinglelineJava")
     void updateFile() {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(myFileName));

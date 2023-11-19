@@ -11,6 +11,9 @@ import java.util.regex.Pattern;
 
 public class CloneFile {
 
+    private CloneFile() {
+    }
+
     static public void cloneFile(Path originalPath) {
 
         try {
@@ -33,7 +36,8 @@ public class CloneFile {
                 copyFileName = oneCopyMatcher.group(1) + " — копия (2).txt";
             } else if (manyCopiesMatcher.find()) {
                 copyFileName =
-                    manyCopiesMatcher.group(1) + " — копия (" + (Integer.parseInt(manyCopiesMatcher.group(2)) + 1) +
+                    manyCopiesMatcher.group(1) + " — копия (" + (Integer.parseInt(manyCopiesMatcher.group(2)) + 1)
+                        +
                         ").txt";
             } else if (noCopyMatcher.find()) {
                 copyFileName = noCopyMatcher.group(1) + " — копия.txt";
