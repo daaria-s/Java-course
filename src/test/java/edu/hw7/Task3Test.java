@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.util.concurrent.ThreadLocalRandom;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class Task3and3part2Test {
+public class Task3Test {
 
 
     static Person[] persons = new Person[] {new Person(1, "Daria", "Moscow", "8888"),
