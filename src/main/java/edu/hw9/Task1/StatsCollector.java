@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class StatsCollector {
     ConcurrentHashMap<String, double[]> metricsData;
 
-    StatsCollector() {
+    public StatsCollector() {
         metricsData = new ConcurrentHashMap<>();
 
     }
