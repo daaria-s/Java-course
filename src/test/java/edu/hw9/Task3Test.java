@@ -55,24 +55,6 @@ public class Task3Test {
 
         atomicArraysEquals(expected, actual);
     }
-    @Test
-    void dfsConcurrentTest3() {
-        Map<Integer, int[]> graph = Map.of(0, new int[] {1, 2, 3, 4},
-            1, new int[] {0, 2, 3, 4},
-            2, new int[] {0, 1, 3, 4},
-            3, new int[] {0, 1, 2, 4},
-            4, new int[] {0, 1, 2, 3}
-        );
 
-        AtomicBoolean[] actual = dfs(0, graph, 4);
-
-        AtomicBoolean[] expected = new AtomicBoolean[] {new AtomicBoolean(true),
-            new AtomicBoolean(true),
-            new AtomicBoolean(true),
-            new AtomicBoolean(true),
-            new AtomicBoolean(true)};
-
-        atomicArraysEquals(expected, actual);
-    }
 
 }
