@@ -1,7 +1,7 @@
 package edu.hw9;
 
-import edu.hw9.Task1.MetricStats;
 import edu.hw9.Task1.StatsCollector;
+import edu.hw9.Task1.MetricStats;
 import org.junit.jupiter.api.Test;
 import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
